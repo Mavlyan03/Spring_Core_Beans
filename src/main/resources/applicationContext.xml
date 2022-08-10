@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder location="app.properties"/>
+    <bean id="human" class="xml.example.Human">
+        <property name="humanName" value="${human.humanName}"/>
+        <property name="humanAge" value="${human.humanAge}"/>
+    </bean>
+
+    <bean id="hamster" class="xml.example.Hamster">
+        <constructor-arg ref="human"/>
+        <property name="name" value="${hamster.name}"/>
+        <property name="color" value="${hamster.color}"/>
+        <property name="weight" value="${hamster.weight}"/>
+    </bean>
+
+    <bean id="tortoise" class="xml.example.Tortoise">
+        <constructor-arg ref="human"/>
+        <property name="nickName" value="${tortoise.nickName}"/>
+        <property name="type" value="${tortoise.type}"/>
+        <property name="age" value="${tortoise.age}"/>
+    </bean>
+
+
+
+</beans>
