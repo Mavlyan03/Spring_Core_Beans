@@ -17,20 +17,19 @@ public class Person {
     @Value("${age}")
     private int age;
     private Animal animal;
-    @Autowired
-    private Rabbit rabbit;
-
+    private Animal animal2;
 
     public Person() {
     }
     @Autowired
-    public Person(@Qualifier("dog") Animal animal) {
+    public Person(@Qualifier("dog") Animal animal,@Qualifier("rabbit") Animal animal2) {
         this.animal = animal;
+        this.animal2 = animal2;
     }
 
     public void callYourFavouriteAnimal() {
         animal.animalPlus();
-        rabbit.animalPlus();
+        animal2.animalPlus();
     }
 
     @PostConstruct
@@ -65,6 +64,14 @@ public class Person {
 
     public void setAnimal(Animal animal) {
         this.animal = animal;
+    }
+
+    public Animal getAnimal2() {
+        return animal2;
+    }
+
+    public void setAnimal2(Animal animal2) {
+        this.animal2 = animal2;
     }
 
     @Override
